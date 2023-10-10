@@ -48,3 +48,16 @@ FROM produtos;
 -- Calcule a média dos preços dos produtos utilizando a função AVG().
 SELECT ROUND(AVG(preco),2) AS media_preco
 FROM produtos;
+-- Crie uma tabela eventos com uma coluna data_evento contendo algumas datas.
+DROP TABLE IF EXISTS eventos;
+CREATE TABLE IF NOT EXISTS eventos 
+(evento VARCHAR(255) NOT NULL, data_evento datetime);
+INSERT INTO eventos
+VALUES 
+('evento_1', '2006-10-10 12:30:30'),
+('evento_2','2006-10-24 00:40:00'),
+('evento_3','2006-10-16 16:56:00'),
+('evento_4','2006-10-12 09:15:45'),
+('evento_5','2006-10-08 17:43:59'),
+('evento_6','2006-10-31 23:58:58');
+SELECT * FROM eventos ; 
