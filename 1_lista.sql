@@ -65,3 +65,6 @@ SELECT * FROM eventos ;
 INSERT INTO eventos
 VALUES 
 ('agora' , NOW());
+-- Use a função DATEDIFF() para calcular o número de dias entre duas datas.
+SELECT evento, DATEDIFF(data_evento, '2006-10-10') AS numero_de_dias
+FROM eventos;
