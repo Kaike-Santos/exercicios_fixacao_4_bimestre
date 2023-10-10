@@ -84,3 +84,15 @@ when preco between 60 and  500 then 'medio'
 else 'barato' 
 end as classificacao_produto
 FROM produtos ;
+-- Crie uma função chamada TOTAL_VALOR que receba preço e quantidade, e retorne o valor total.
+delimiter //
+CREATE FUNCTION TOTAL_VALOR(preco decimal(10,3), qtt INT) RETURNS INT
+NOT DETERMINISTIC
+READS SQL DATA 
+BEGIN
+RETURN preco * qtt;
+END;
+//
+delimiter ;
+SELECT TOTAL_VALOR(10,5);
+
