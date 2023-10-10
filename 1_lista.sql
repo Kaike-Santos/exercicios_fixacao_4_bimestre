@@ -11,3 +11,8 @@ VALUES
 ('Maria Clara'),
 ('João');
 SELECT * from Nomes;
+
+
+-- Utilize a função UPPER() para converter todos os nomes para maiúsculas. 
+SELECT UPPER(Nome) as NomeMaiusculo 
+from Nomes ; 
