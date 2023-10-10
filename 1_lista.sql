@@ -71,3 +71,8 @@ FROM eventos;
 -- Utilize a função DAYNAME() para exibir o nome do dia da semana de cada evento.
 SELECT evento, data_evento, DAYNAME(data_evento) AS nome_dia_semana
 FROM eventos;
+-- Em sua tabela produtos, use a função IF() para determinar se um produto está "Em estoque" ou "Fora de estoque" 
+-- baseado na quantidade (e.g., se a quantidade for 0, está "Fora de estoque").
+SELECT produto , quantidade ,
+if(quantidade = 0 , 'fora de estoque' , 'em estoque') as status_estoque 
+FROM produtos ;
