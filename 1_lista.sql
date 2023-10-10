@@ -95,4 +95,7 @@ END;
 //
 delimiter ;
 SELECT TOTAL_VALOR(10,5);
+--  Use esta função para calcular o valor total de cada item em sua tabela produtos.
+SELECT produto , preco , quantidade , TOTAL_VALOR(preco, quantidade) AS valor_total
+FROM Produtos;
 
