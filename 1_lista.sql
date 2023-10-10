@@ -16,3 +16,7 @@ SELECT * from Nomes;
 -- Utilize a função UPPER() para converter todos os nomes para maiúsculas. 
 SELECT UPPER(Nome) as NomeMaiusculo 
 from Nomes ; 
+
+-- Use a função LENGTH() para determinar o tamanho de cada nome.
+SELECT Nome , length(Nome) as TamanhoNome
+from Nomes ;
