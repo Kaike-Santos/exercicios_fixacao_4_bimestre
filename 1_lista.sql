@@ -105,4 +105,8 @@ FROM produtos;
 SELECT produto , preco 
 from produtos 
 WHERE preco = (select MAX(PRECO) FROM produtos);
+--  Determine o produto mais barato usando a função MIN().
+SELECT produto , preco 
+from produtos 
+WHERE preco = (select min(PRECO) FROM produtos);
 
