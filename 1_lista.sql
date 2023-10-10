@@ -28,3 +28,14 @@ WHEN nome LIKE '%o' THEN CONCAT('Sr',Nome)
 WHEN nome LIKE '%a' THEN CONCAT('Sra',Nome) 
 END AS NomeConcat
 from Nomes;
+-- Crie uma tabela produtos com as colunas produto, preco e quantidade. 
+drop table produtos; 
+CREATE TABLE IF NOT EXISTS Produtos  
+(produto VARCHAR(255) NOT NULL, preco decimal(10,3) NOT NULL, quantidade int NOT NULL);
+INSERT INTO Produtos
+VALUES 
+('produto_1', 100.190 , 10),
+('produto_2', 200.128 , 5),
+('produto_3', 50.098 , 20),
+('produto_4', 1000.101 , 2);
+select * from produtos ;
