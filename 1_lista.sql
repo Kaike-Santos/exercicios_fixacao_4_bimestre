@@ -153,3 +153,24 @@ END;
 
 DELIMITER ;
 select Exponencial(2, 3);
+--  Crie uma função que verifica se uma palavra é palíndromo ou não. Retorne 1 se for palíndromo ou 0 se não for.
+DELIMITER //
+
+CREATE FUNCTION Palindromo(palavra VARCHAR(255)) RETURNS INT
+NOT DETERMINISTIC
+READS SQL DATA 
+BEGIN
+    DECLARE palavra_invertida VARCHAR(255);
+    
+    SET palavra_invertida = REVERSE(palavra);
+    
+    IF palavra = palavra_invertida THEN
+        RETURN 1; -- É um palíndromo
+    ELSE
+        RETURN 0; -- Não é um palíndromo
+    END IF;
+END;
+//
+
+DELIMITER ;
+select palindromo ('ovo');
