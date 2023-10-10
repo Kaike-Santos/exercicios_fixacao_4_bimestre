@@ -45,3 +45,6 @@ FROM produtos;
 -- Use a função ABS() para exibir o valor absoluto das quantidades.
 SELECT ABS(quantidade)
 FROM produtos;
+-- Calcule a média dos preços dos produtos utilizando a função AVG().
+SELECT ROUND(AVG(preco),2) AS media_preco
+FROM produtos;
