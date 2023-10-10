@@ -68,3 +68,6 @@ VALUES
 -- Use a função DATEDIFF() para calcular o número de dias entre duas datas.
 SELECT evento, DATEDIFF(data_evento, '2006-10-10') AS numero_de_dias
 FROM eventos;
+-- Utilize a função DAYNAME() para exibir o nome do dia da semana de cada evento.
+SELECT evento, data_evento, DAYNAME(data_evento) AS nome_dia_semana
+FROM eventos;
