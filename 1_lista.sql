@@ -76,3 +76,11 @@ FROM eventos;
 SELECT produto , quantidade ,
 if(quantidade = 0 , 'fora de estoque' , 'em estoque') as status_estoque 
 FROM produtos ;
+-- Use a função CASE para classificar os produtos em categorias de preço: "Barato", "Médio" e "Caro".
+SELECT produto , preco ,
+case 
+when preco > 500 then 'caro' 
+when preco between 60 and  500 then 'medio' 
+else 'barato' 
+end as classificacao_produto
+FROM produtos ;
