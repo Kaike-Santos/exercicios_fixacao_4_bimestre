@@ -112,3 +112,23 @@ WHERE preco = (select min(PRECO) FROM produtos);
 -- Calcule a soma total dos produtos em estoque utilizando as funções SUM() e IF().
 SELECT SUM( if(quantidade > 0 , preco * quantidade , 0 ) ) as soma_total
 from produtos ;
+--  Crie uma função que retorno o Fatorial de um número. Ex.: 5! = 5.4.2.1
+delimiter //
+CREATE FUNCTION fatorial(nmr INT) RETURNS INT
+NOT DETERMINISTIC
+READS SQL DATA 
+BEGIN
+    DECLARE resultado INT DEFAULT 1;
+    DECLARE i INT;
+    SET i = 1;
+    
+    WHILE i <= nmr DO
+        SET resultado = resultado * i;
+        SET i = i + 1;
+    END WHILE;
+    
+    RETURN resultado;
+END;
+//
+delimiter ; 
+select fatorial(5);
