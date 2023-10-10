@@ -42,3 +42,6 @@ select * from produtos ;
 -- Utilize a função ROUND() para arredondar os preços para 2 casas decimais.
 SELECT ROUND(preco,2) 
 FROM produtos;
+-- Use a função ABS() para exibir o valor absoluto das quantidades.
+SELECT ABS(quantidade)
+FROM produtos;
