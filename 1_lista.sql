@@ -20,3 +20,11 @@ from Nomes ;
 -- Use a função LENGTH() para determinar o tamanho de cada nome.
 SELECT Nome , length(Nome) as TamanhoNome
 from Nomes ;
+
+--  Use a função CONCAT() para adicionar "Sr. " antes dos nomes masculinos e "Sra. " antes dos nomes femininos. 
+SELECT 
+CASE 
+WHEN nome LIKE '%o' THEN CONCAT('Sr',Nome) 
+WHEN nome LIKE '%a' THEN CONCAT('Sra',Nome) 
+END AS NomeConcat
+from Nomes;
