@@ -109,4 +109,6 @@ WHERE preco = (select MAX(PRECO) FROM produtos);
 SELECT produto , preco 
 from produtos 
 WHERE preco = (select min(PRECO) FROM produtos);
-
+-- Calcule a soma total dos produtos em estoque utilizando as funções SUM() e IF().
+SELECT SUM( if(quantidade > 0 , preco * quantidade , 0 ) ) as soma_total
+from produtos ;
