@@ -39,3 +39,6 @@ VALUES
 ('produto_3', 50.098 , 20),
 ('produto_4', 1000.101 , 2);
 select * from produtos ;
+-- Utilize a função ROUND() para arredondar os preços para 2 casas decimais.
+SELECT ROUND(preco,2) 
+FROM produtos;
