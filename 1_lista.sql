@@ -101,4 +101,8 @@ FROM Produtos;
 -- Conte o número total de produtos usando a função COUNT().
 SELECT count(produto) as qtt_produtos
 FROM produtos;
+-- Determine o produto mais caro usando a função MAX().
+SELECT produto , preco 
+from produtos 
+WHERE preco = (select MAX(PRECO) FROM produtos);
 
