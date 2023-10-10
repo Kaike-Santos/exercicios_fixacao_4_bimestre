@@ -132,3 +132,24 @@ END;
 //
 delimiter ; 
 select fatorial(5);
+-- Crie uma função que qualcule o exponencial de um número. Ex.: f_exponencial(2, 3) = 2³ = 8
+delimiter //
+CREATE FUNCTION Exponencial(base INT , expoente INT) RETURNS INT
+NOT DETERMINISTIC
+READS SQL DATA 
+BEGIN
+    DECLARE resultado int DEFAULT 1;
+    DECLARE i INT;
+    SET i = 1;
+    
+    WHILE i <= expoente DO
+        SET resultado = resultado * base;
+        SET i = i + 1;
+    END WHILE;
+    
+    RETURN resultado;
+END;
+//
+
+DELIMITER ;
+select Exponencial(2, 3);
