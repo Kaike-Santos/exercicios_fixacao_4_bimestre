@@ -61,3 +61,7 @@ VALUES
 ('evento_5','2006-10-08 17:43:59'),
 ('evento_6','2006-10-31 23:58:58');
 SELECT * FROM eventos ; 
+-- Utilize a função NOW() para inserir a data e hora atual em uma nova linha.
+INSERT INTO eventos
+VALUES 
+('agora' , NOW());
