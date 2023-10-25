@@ -32,3 +32,21 @@ INSERT INTO auditoria values ('houve uma tentativa de colocar um nome nulo de um
 end if;
 //
 delimiter ; 
+
+/*Em uma loja, ao inserir um novo pedido na tabela Pedidos,
+o estoque do produto em questão, presente na tabela Produtos, deve ser decrementado.
+Se o estoque ficar abaixo de 5 unidades, uma mensagem deve ser inserida na tabela Auditoria.*/
+
+DELIMITER //
+create trigger decrementar_estoque after insert on pedidos for each row 
+BEGIN
+UPDATE produtos 
+set quantidade = quantidade - 1;
+
+if quantidade.produto < 5 then 
+INSERT INTO auditoria 
+values ('o produto tem apenas ', quantidade ,'unidades restantes');
+end if ;
+end;
+//
+DELIMITER ;
