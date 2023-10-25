@@ -19,4 +19,16 @@ values ('houve uma tentativa de deletar um cliente as ');
 
 create trigger atualizar_nome_cliente after UPDATE on clientes for each row 
 INSERT INTO auditoria 
-values ('houve uma alteração no nome de um cliente , o nome antigo era ', old.nome ,'e agora é ', NEW.nome); 
+values ('houve uma alteração no nome de um cliente , o nome antigo era ', old.nome ,'e agora é ', NEW.nome);
+
+/*Não permita que o nome do cliente seja atualizado para uma string vazia ou NULL.
+ Se alguém tentar fazer isso, o trigger deve impedir a atualização e inserir uma mensagem na tabela Auditoria.*/
+ 
+ delimiter //
+create trigger barrar_nome_nulo BEFORE UPDATE on clientes for each row 
+if NEW.nome is null or NEW.nome = '' then 
+set NEW.nome = OLD.nome;
+INSERT INTO auditoria values ('houve uma tentativa de colocar um nome nulo de um cliente , o nome permanece o mesmo');  
+end if;
+//
+delimiter ; 
